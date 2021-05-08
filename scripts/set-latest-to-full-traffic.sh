@@ -1,3 +1,4 @@
+#!/bin/sh
 for ARGUMENT in "$@"
 do
 
@@ -18,6 +19,7 @@ if [ "$HELP" != "" ]; then
   echo "FUNCTION=my-lambda ALIAS=my-alias ./set-latest-to-full-traffic.sh"
   exit 0
 else
+  true
 fi
 
 echo "rolling forward by setting traffic on latest version of function: ${FUNCTION} and alias: ${ALIAS} to 100%"

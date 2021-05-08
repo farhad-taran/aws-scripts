@@ -1,3 +1,4 @@
+#!/bin/sh
 for ARGUMENT in "$@"
 do
 
@@ -22,6 +23,7 @@ if [ "$HELP" != "" ]; then
   echo "FUNCTION=my-lambda ALIAS=my-alias PREVIOUS_VERSION=1 PREVIOUS_VERSION_TRAFFIC=0.8 ./split-traffic.sh"
   exit 0
 else
+  true
 fi
 
 if [ -z "${PREVIOUS_VERSION}" ];

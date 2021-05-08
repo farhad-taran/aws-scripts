@@ -1,3 +1,4 @@
+#!/bin/sh
 for ARGUMENT in "$@"
 do
 
@@ -17,6 +18,7 @@ if [ "$HELP" != "" ]; then
   echo "FUNCTION=my-lambda ./get-latest-version.sh"
   exit 0
 else
+  true
 fi
 
 echo "getting latest version number of function: ${FUNCTION}"
