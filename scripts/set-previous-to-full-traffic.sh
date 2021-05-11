@@ -25,13 +25,6 @@ else
   true
 fi
 
-if [ -z "${PREVIOUS_VERSION}" ];
-then
-    echo "PREVIOUS_VERSION not provided, getting it by using ./get-latest-version.sh"
-    latest_version=$($PWD/scripts/get-latest-version.sh FUNCTION=$FUNCTION)
-    PREVIOUS_VERSION=$(($latest_version-1))
-fi
-
 echo "rolling back by setting traffic on previous version of function: ${FUNCTION} and alias: ${ALIAS} to 100%"
 
 aws lambda update-alias --name "$ALIAS" --function-name "$FUNCTION" --function-version "$PREVIOUS_VERSION" --routing-config AdditionalVersionWeights={}
