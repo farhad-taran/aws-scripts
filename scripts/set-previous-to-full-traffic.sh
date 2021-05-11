@@ -17,9 +17,9 @@ do
 done
 
 if [ "$HELP" != "" ]; then
-  echo "FUNCTION=my-lambda ALIAS=my-alias ./set-previous-to-full-traffic.sh"
+  echo "./set-previous-to-full-traffic.sh FUNCTION=my-lambda ALIAS=my-alias"
   echo "or"
-  echo "FUNCTION=my-lambda ALIAS=my-alias PREVIOUS_VERSION=1 ./set-previous-to-full-traffic.sh"
+  echo "./set-previous-to-full-traffic.sh FUNCTION=my-lambda ALIAS=my-alias PREVIOUS_VERSION=1"
   exit 0
 else
   true

@@ -16,7 +16,7 @@ do
 done
 
 if [ "$HELP" != "" ]; then
-  echo "FUNCTION=my-lambda ALIAS=my-alias ./set-latest-to-full-traffic.sh"
+  echo "./set-latest-to-full-traffic.sh FUNCTION=my-lambda ALIAS=my-alias"
   exit 0
 else
   true

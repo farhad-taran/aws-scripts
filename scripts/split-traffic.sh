@@ -18,9 +18,9 @@ do
 done
 
 if [ "$HELP" != "" ]; then
-  echo "FUNCTION=my-lambda ALIAS=my-alias PREVIOUS_VERSION_TRAFFIC=0.8 ./split-traffic.sh"
+  echo "./split-traffic.sh FUNCTION=my-lambda ALIAS=my-alias PREVIOUS_VERSION_TRAFFIC=0.8 "
   echo "or"
-  echo "FUNCTION=my-lambda ALIAS=my-alias PREVIOUS_VERSION=1 PREVIOUS_VERSION_TRAFFIC=0.8 ./split-traffic.sh"
+  echo "./split-traffic.sh FUNCTION=my-lambda ALIAS=my-alias PREVIOUS_VERSION=1 PREVIOUS_VERSION_TRAFFIC=0.8 "
   exit 0
 else
   true
