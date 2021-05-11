@@ -29,4 +29,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: run shellcheck
-        run: shellcheck scripts/*.sh
+        run: find ./scripts -type f -exec "shellcheck" {} \;
