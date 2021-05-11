@@ -2,8 +2,8 @@
 for ARGUMENT in "$@"
 do
 
-    KEY=$(echo $ARGUMENT | cut -f1 -d=)
-    VALUE=$(echo $ARGUMENT | cut -f2 -d=)   
+    KEY=$(echo "$ARGUMENT" | cut -f1 -d=)
+    VALUE=$(echo "$ARGUMENT" | cut -f2 -d=)   
 
     case "$KEY" in
             HELP)               HELP=${VALUE} ;;
@@ -29,7 +29,8 @@ fi
 if [ -z "${PREVIOUS_VERSION}" ];
 then
     echo "PREVIOUS_VERSION not provided, getting it by using ./get-latest-version.sh"
-    PREVIOUS_VERSION=$(FUNCTION=$FUNCTION ./get-latest-version.sh)
+    latest_version=$($PWD/scripts/get-latest-version.sh FUNCTION=$FUNCTION)
+    PREVIOUS_VERSION=$(($latest_version-1))
 fi
 
-aws lambda update-alias --name $ALIAS --function-name $FUNCTION --routing-config AdditionalVersionWeights={${PREVIOUS_VERSION}=${PREVIOUS_VERSION_TRAFFIC}}
+aws lambda update-alias --name "$ALIAS" --function-name "$FUNCTION" --routing-config AdditionalVersionWeights={"${PREVIOUS_VERSION}"="${PREVIOUS_VERSION_TRAFFIC}"}
