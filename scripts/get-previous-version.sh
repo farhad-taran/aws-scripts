@@ -15,7 +15,7 @@ do
 done
 
 if [ "$HELP" != "" ]; then
-  echo "FUNCTION=my-lambda ./get-latest-version.sh"
+  echo "./get-latest-version.sh FUNCTION=my-lambda"
   exit 0
 else
   true

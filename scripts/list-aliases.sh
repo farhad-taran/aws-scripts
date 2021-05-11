@@ -15,14 +15,12 @@ do
 done
 
 if [ "$HELP" != "" ]; then
-  echo "./get-latest-version.sh FUNCTION=my-lambda"
+  echo "./list-aliases.sh FUNCTION=my-lambda"
   exit 0
 else
   true
 fi
 
-latest_version=$(aws lambda list-versions-by-function --function-name "${FUNCTION}" \
-  --no-paginate \
-  --query "max_by(Versions, &to_number(to_number(Version) || '0'))" | jq -r ".Version")
+details=$(aws lambda list-aliases --function-name "${FUNCTION}")
 
-echo "$latest_version"
+echo "$details"
